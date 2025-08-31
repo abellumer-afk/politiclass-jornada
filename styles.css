@@ -1,0 +1,395 @@
+/*
+ * Politiclass Jornada website stylesheet
+ *
+ * Theme colours: black, white and red. Designed for clarity and
+ * readability with a modern look inspired by landing pages. The CSS is
+ * structured in sections matching the HTML markup. Feel free to tweak
+ * variables at the top to adjust colours or spacing.
+ */
+
+/* CSS variables for easy theming */
+:root {
+  --color-dark: #0d0d0d;
+  --color-light: #ffffff;
+  --color-primary: #c62828; /* deep red */
+  --color-secondary: #b71c1c;
+  --color-accent: #e53935;
+  --max-width: 1200px;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Global reset and typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border-radius: 0.25rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  background-image: url('https://images.unsplash.com/photo-1542223616-669c22b43742?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-light);
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--color-light);
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.hero-text {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: var(--color-light);
+}
+
+/* Sections */
+.section {
+  padding: 4rem 0;
+}
+
+.section.light {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.section.dark {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Grid layout for three cards */
+.grid-3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.grid-3 .card {
+  background: var(--color-light);
+  color: var(--color-dark);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  flex: 1 1 280px;
+  max-width: 380px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-3 .card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.grid-3 .card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  cursor: grab;
+}
+
+.carousel-item {
+  min-width: 160px;
+  max-width: 200px;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-item span {
+  display: block;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.carousel.active {
+  cursor: grabbing;
+}
+
+/* About section */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1 1 400px;
+}
+
+.about-photo {
+  flex: 1 1 350px;
+  text-align: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 0.5rem;
+}
+
+/* Certification grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cert-item {
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.cert-item .cert-level {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Audience list */
+.audience-list {
+  list-style: none;
+  columns: 2;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.audience-list li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.highlight-box {
+  background: var(--color-light);
+  color: var(--color-dark);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-box h4 {
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* Two-column features */
+.two-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.two-col ul {
+  list-style: none;
+  flex: 1 1 250px;
+}
+
+.two-col li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.two-col li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+/* Plans */
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.plan {
+  border: 2px solid var(--color-primary);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  flex: 1 1 280px;
+  max-width: 350px;
+  background-color: var(--color-light);
+  text-align: center;
+}
+
+.plan h4 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.plan .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-tagline {
+    font-size: 1.25rem;
+  }
+  .hero-text {
+    font-size: 0.9rem;
+  }
+  .grid-3 .card {
+    flex: 1 1 100%;
+  }
+  .about-grid {
+    flex-direction: column;
+  }
+  .cert-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .audience-list {
+    columns: 1;
+  }
+  .two-col {
+    flex-direction: column;
+  }
+  .plans {
+    flex-direction: column;
+  }
+}
